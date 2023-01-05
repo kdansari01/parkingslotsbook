@@ -22,7 +22,7 @@ const SelectSlots = ({ back, setData, data }) => {
     }));
   };
   const handleSubmit = () => {
-    localStorage.setItem("details", JSON.stringify(...data));
+    localStorage.setItem("details", JSON.stringify({ ...data }));
     setTimeout(() => {
       alert("successfully registered");
       navigate("/list");

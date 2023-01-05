@@ -18,18 +18,15 @@ const Booking = () => {
   const NextButton = () => {
     setStage(2);
     setAllData({ ...allData, data });
+    localStorage.setItem("details", JSON.stringify(data));
   };
-  useEffect(() => {
-    localStorage.setItem("details", JSON.stringify(allData));
-  }, [allData]);
+  // useEffect(() => {
+  //   localStorage.setItem("details", JSON.stringify(allData));
+  // }, [allData]);
   // console.log(data);
   if (stage === 2) {
     return (
-      <SelectSlots
-        back={() => setStage(1)}
-        setData={setAllData}
-        data={allData}
-      />
+      <SelectSlots back={() => setStage(1)} setData={setData} data={data} />
     );
   }
   return (
@@ -127,6 +124,13 @@ const Booking = () => {
               </button>
             </div>
           </div>
+          <ul>
+            <ol className="fw-bold fs-2ssss">Note</ol>
+            <hr />
+            <li>3hr charge car:50rs and bike:20</li>
+            <li>6hr charge car:80rs and bike:30rs</li>
+            <li>12hr charge car:100rs and bike:50</li>
+          </ul>
         </form>
       </div>
     </>
